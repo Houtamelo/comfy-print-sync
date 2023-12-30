@@ -29,7 +29,7 @@ The default shortcut is often `Ctrl + Shift + R` or `Ctrl + Shift + H`.
 
 Here's the patterns that I use (with Jetbrains Intellij IDEs, Java's Regex):
 - Match: `(?<!comfy_e?)(?<type>print!|println!|eprint!|eprintln!)`
-- Replace: `comfy_print::comfy_${type}`
+- Replace: `comfy_print_sync::comfy_${type}`
 
 ## Step 3 - Get comfortable
 

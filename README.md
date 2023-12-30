@@ -15,7 +15,7 @@ It's very rare, you might never see it, you can also guarantee that you won't se
 # Usage
 
 ## Step 1 - Dependency
-Add `comfy-print` as a dependency to your project.
+Add `comfy-print-sync` as a dependency to your project.
 
 ## Step 2 - Replace macro invocations
 - Replace every invocation of `std::print!()`    with `comfy_print::print!`
@@ -29,7 +29,7 @@ The default shortcut is often `Ctrl + Shift + R` or `Ctrl + Shift + H`.
 
 Here's the patterns that I use (with Jetbrains Intellij IDEs, Java's Regex):
 - Match: `(?<!comfy_e?)(?<type>print!|println!|eprint!|eprintln!)`
-- Replace: `comfy_print::comfy_${type}`
+- Replace: `comfy_print_sync::comfy_${type}`
 
 ## Step 3 - Get comfortable
 
@@ -213,11 +213,11 @@ On the other hand, a `FairMutex` makes threads form a queue upon requesting the 
 
 ---
 
-In the end, all 4 macros end up calling `comfy_print::sync_impl::_comfy_print_sync(msg)`.
-
 Before trying to print, we need to check if there are already other prints in the queue. If there are, we can't print `msg` right away because that would break the ordering of "prints requested -> prints delivered".
 
 Prints will join the queue if they fail to write to their target output.
+
+In the end, all 4 macros end up calling `comfy_print::sync_impl::_comfy_print_sync(msg)`:
 
 <details>
   <summary>fn _comfy_print_sync(msg: Message)</summary>

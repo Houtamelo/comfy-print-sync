@@ -9,7 +9,6 @@ readme = "README.md"
 keywords = ["println", "debug", "write", "io", "stream"]
 categories = ["os", "rust-patterns", "development-tools", "development-tools::debugging"]
 exclude = [
-    "comfy_print_tests/*",
     ".idea/*"
 ]
 

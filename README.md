@@ -15,7 +15,7 @@ It's very rare, you might never see it, you can also guarantee that you won't se
 # Usage
 
 ## Step 1 - Dependency
-Add `comfy-print` as a dependency to your project.
+Add `comfy-print-sync` as a dependency to your project.
 
 ## Step 2 - Replace macro invocations
 - Replace every invocation of `std::print!()`    with `comfy_print::print!`

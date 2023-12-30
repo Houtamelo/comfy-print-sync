@@ -213,11 +213,11 @@ On the other hand, a `FairMutex` makes threads form a queue upon requesting the 
 
 ---
 
-In the end, all 4 macros end up calling `comfy_print::sync_impl::_comfy_print_sync(msg)`.
-
 Before trying to print, we need to check if there are already other prints in the queue. If there are, we can't print `msg` right away because that would break the ordering of "prints requested -> prints delivered".
 
 Prints will join the queue if they fail to write to their target output.
+
+In the end, all 4 macros end up calling `comfy_print::sync_impl::_comfy_print_sync(msg)`:
 
 <details>
   <summary>fn _comfy_print_sync(msg: Message)</summary>

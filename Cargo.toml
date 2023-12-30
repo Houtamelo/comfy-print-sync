@@ -1,0 +1,20 @@
+[package]
+name = "comfy-print-sync"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+description = "Non-panicking versions of println! and friends. Sync implementation."
+repository = "https://github.com/Houtamelo/comfy-print-sync"
+readme = "README.md"
+keywords = ["println", "debug", "write", "io", "stream"]
+categories = ["os", "rust-patterns", "development-tools", "development-tools::debugging"]
+exclude = [
+    "comfy_print_tests/*",
+    ".idea/*"
+]
+
+[dependencies]
+parking_lot = "0.12.1"
+
+[package.metadata.docs.rs]
+rustdoc-args = ["--cfg", "docsrs"]
